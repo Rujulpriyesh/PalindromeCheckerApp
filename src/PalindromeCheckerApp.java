@@ -25,25 +25,52 @@ public class PalindromeCheckerApp {
                 (isPalindromeUC2 ? " is a Palindrome" : " is not a Palindrome"));
 
 
-        // ==========================
         // UC3 Reverse String Method
-        // ==========================
 
-        String input = "level";
+        String inputUC3 = "level";
 
         String reversed = "";
 
-        // reverse loop (PDF hint)
-        for (int i = input.length() - 1; i >= 0; i--) {
+        for (int i = inputUC3.length() - 1; i >= 0; i--) {
 
-            reversed = reversed + input.charAt(i);
+            reversed = reversed + inputUC3.charAt(i);
 
         }
 
-        boolean isPalindrome = input.equals(reversed);
+        boolean isPalindromeUC3 = inputUC3.equals(reversed);
+
+        System.out.println("Input : " + inputUC3);
+        System.out.println("Reversed : " + reversed);
+        System.out.println("Is Palindrome? : " + isPalindromeUC3);
+
+
+        // ==========================
+        // UC4 Character Array Method
+        // ==========================
+
+        String input = "radar";
+
+        char[] chars = input.toCharArray();
+
+        int start = 0;
+        int end = chars.length - 1;
+
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (chars[start] != chars[end]) {
+
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
+        }
 
         System.out.println("Input : " + input);
-        System.out.println("Reversed : " + reversed);
         System.out.println("Is Palindrome? : " + isPalindrome);
+
     }
 }
