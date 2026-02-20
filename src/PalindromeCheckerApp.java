@@ -2,34 +2,48 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // UC1 : Application Entry & Welcome Message
+        // UC1 Welcome Message
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully.");
 
-        // UC2 : Hardcoded Palindrome Check
+        // UC2 Hardcoded Palindrome
+        String inputUC2 = "madam";
 
-        String input = "madam";
+        boolean isPalindromeUC2 = true;
 
-        boolean isPalindrome = true;
+        for (int i = 0; i < inputUC2.length() / 2; i++) {
 
-        for (int i = 0; i < input.length() / 2; i++) {
+            if (inputUC2.charAt(i) != inputUC2.charAt(inputUC2.length() - 1 - i)) {
 
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-
-                isPalindrome = false;
+                isPalindromeUC2 = false;
                 break;
             }
         }
 
-        if (isPalindrome) {
+        System.out.println(inputUC2 +
+                (isPalindromeUC2 ? " is a Palindrome" : " is not a Palindrome"));
 
-            System.out.println(input + " is a Palindrome");
 
-        } else {
+        // ==========================
+        // UC3 Reverse String Method
+        // ==========================
 
-            System.out.println(input + " is not a Palindrome");
+        String input = "level";
+
+        String reversed = "";
+
+        // reverse loop (PDF hint)
+        for (int i = input.length() - 1; i >= 0; i--) {
+
+            reversed = reversed + input.charAt(i);
 
         }
+
+        boolean isPalindrome = input.equals(reversed);
+
+        System.out.println("Input : " + input);
+        System.out.println("Reversed : " + reversed);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
