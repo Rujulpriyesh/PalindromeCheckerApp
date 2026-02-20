@@ -1,15 +1,18 @@
+import java.util.*;
 import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // UC1 Welcome Message
+        // UC1
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully.");
 
-        // UC2 Hardcoded Palindrome
+        // UC2
         String inputUC2 = "madam";
 
         boolean isPalindromeUC2 = true;
@@ -27,7 +30,7 @@ public class PalindromeCheckerApp {
                 (isPalindromeUC2 ? " is a Palindrome" : " is not a Palindrome"));
 
 
-        // UC3 Reverse String Method
+        // UC3
 
         String inputUC3 = "level";
 
@@ -35,7 +38,7 @@ public class PalindromeCheckerApp {
 
         for (int i = inputUC3.length() - 1; i >= 0; i--) {
 
-            reversed = reversed + inputUC3.charAt(i);
+            reversed += inputUC3.charAt(i);
 
         }
 
@@ -46,7 +49,7 @@ public class PalindromeCheckerApp {
         System.out.println("Is Palindrome? : " + isPalindromeUC3);
 
 
-        // UC4 Character Array Method
+        // UC4
 
         String inputUC4 = "radar";
 
@@ -73,26 +76,54 @@ public class PalindromeCheckerApp {
         System.out.println("Is Palindrome? : " + isPalindromeUC4);
 
 
+        // UC5
+
+        String inputUC5 = "noon";
+
+        Stack<Character> stackUC5 = new Stack<>();
+
+        for (char c : inputUC5.toCharArray()) {
+
+            stackUC5.push(c);
+        }
+
+        boolean isPalindromeUC5 = true;
+
+        for (char c : inputUC5.toCharArray()) {
+
+            if (c != stackUC5.pop()) {
+
+                isPalindromeUC5 = false;
+                break;
+            }
+        }
+
+        System.out.println("Input : " + inputUC5);
+        System.out.println("Is Palindrome? : " + isPalindromeUC5);
+
+
         // ==========================
-        // UC5 Stack Based Palindrome
+        // UC6 Queue + Stack Method
         // ==========================
 
-        String input = "noon";
+        String input = "civic";
+
+        Queue<Character> queue = new LinkedList<>();
 
         Stack<Character> stack = new Stack<>();
 
-        // push characters
+        // insert into both
         for (char c : input.toCharArray()) {
 
+            queue.offer(c);
             stack.push(c);
         }
 
         boolean isPalindrome = true;
 
-        // compare pop order
-        for (char c : input.toCharArray()) {
+        while (!queue.isEmpty()) {
 
-            if (c != stack.pop()) {
+            if (!queue.poll().equals(stack.pop())) {
 
                 isPalindrome = false;
                 break;
