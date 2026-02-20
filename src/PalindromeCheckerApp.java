@@ -1,7 +1,4 @@
 import java.util.*;
-import java.util.Stack;
-import java.util.Queue;
-import java.util.LinkedList;
 
 public class PalindromeCheckerApp {
 
@@ -39,7 +36,6 @@ public class PalindromeCheckerApp {
         for (int i = inputUC3.length() - 1; i >= 0; i--) {
 
             reversed += inputUC3.charAt(i);
-
         }
 
         boolean isPalindromeUC3 = inputUC3.equals(reversed);
@@ -102,28 +98,53 @@ public class PalindromeCheckerApp {
         System.out.println("Is Palindrome? : " + isPalindromeUC5);
 
 
-        // ==========================
-        // UC6 Queue + Stack Method
-        // ==========================
+        // UC6
 
-        String input = "civic";
+        String inputUC6 = "civic";
 
         Queue<Character> queue = new LinkedList<>();
 
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> stackUC6 = new Stack<>();
 
-        // insert into both
-        for (char c : input.toCharArray()) {
+        for (char c : inputUC6.toCharArray()) {
 
             queue.offer(c);
-            stack.push(c);
+            stackUC6.push(c);
+        }
+
+        boolean isPalindromeUC6 = true;
+
+        while (!queue.isEmpty()) {
+
+            if (!queue.poll().equals(stackUC6.pop())) {
+
+                isPalindromeUC6 = false;
+                break;
+            }
+        }
+
+        System.out.println("Input : " + inputUC6);
+        System.out.println("Is Palindrome? : " + isPalindromeUC6);
+
+
+        // ==========================
+        // UC7 DEQUE OPTIMIZED METHOD
+        // ==========================
+
+        String input = "refer";
+
+        Deque<Character> deque = new ArrayDeque<>();
+
+        for (char c : input.toCharArray()) {
+
+            deque.addLast(c);
         }
 
         boolean isPalindrome = true;
 
-        while (!queue.isEmpty()) {
+        while (deque.size() > 1) {
 
-            if (!queue.poll().equals(stack.pop())) {
+            if (!deque.removeFirst().equals(deque.removeLast())) {
 
                 isPalindrome = false;
                 break;
