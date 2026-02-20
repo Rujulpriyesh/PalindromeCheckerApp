@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
@@ -44,29 +46,57 @@ public class PalindromeCheckerApp {
         System.out.println("Is Palindrome? : " + isPalindromeUC3);
 
 
-        // ==========================
         // UC4 Character Array Method
-        // ==========================
 
-        String input = "radar";
+        String inputUC4 = "radar";
 
-        char[] chars = input.toCharArray();
+        char[] chars = inputUC4.toCharArray();
 
         int start = 0;
         int end = chars.length - 1;
 
-        boolean isPalindrome = true;
+        boolean isPalindromeUC4 = true;
 
         while (start < end) {
 
             if (chars[start] != chars[end]) {
 
-                isPalindrome = false;
+                isPalindromeUC4 = false;
                 break;
             }
 
             start++;
             end--;
+        }
+
+        System.out.println("Input : " + inputUC4);
+        System.out.println("Is Palindrome? : " + isPalindromeUC4);
+
+
+        // ==========================
+        // UC5 Stack Based Palindrome
+        // ==========================
+
+        String input = "noon";
+
+        Stack<Character> stack = new Stack<>();
+
+        // push characters
+        for (char c : input.toCharArray()) {
+
+            stack.push(c);
+        }
+
+        boolean isPalindrome = true;
+
+        // compare pop order
+        for (char c : input.toCharArray()) {
+
+            if (c != stack.pop()) {
+
+                isPalindrome = false;
+                break;
+            }
         }
 
         System.out.println("Input : " + input);
