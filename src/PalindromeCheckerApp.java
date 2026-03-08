@@ -4,12 +4,17 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        // UC1
+        // ==========================
+        // UC1 - Welcome Message
+        // ==========================
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully");
 
-        // UC2
+
+        // ==========================
+        // UC2 - Hardcoded Palindrome
+        // ==========================
         String inputUC2 = "madam";
         boolean isPalindromeUC2 = true;
 
@@ -20,10 +25,12 @@ public class PalindromeCheckerApp {
             }
         }
 
-        System.out.println(inputUC2 + " -> " + isPalindromeUC2);
+        System.out.println("UC2: " + inputUC2 + " -> " + isPalindromeUC2);
 
 
-        // UC3
+        // ==========================
+        // UC3 - Reverse String
+        // ==========================
         String inputUC3 = "level";
         String reversed = "";
 
@@ -31,17 +38,17 @@ public class PalindromeCheckerApp {
             reversed += inputUC3.charAt(i);
         }
 
-        System.out.println(inputUC3 + " reversed = " + reversed);
-        System.out.println("Palindrome? " + inputUC3.equals(reversed));
+        System.out.println("UC3: " + inputUC3 + " -> " + inputUC3.equals(reversed));
 
 
-        // UC4
+        // ==========================
+        // UC4 - Character Array
+        // ==========================
         String inputUC4 = "radar";
         char[] chars = inputUC4.toCharArray();
 
         int start = 0;
         int end = chars.length - 1;
-
         boolean isPalindromeUC4 = true;
 
         while (start < end) {
@@ -55,15 +62,19 @@ public class PalindromeCheckerApp {
             end--;
         }
 
-        System.out.println(inputUC4 + " -> " + isPalindromeUC4);
+        System.out.println("UC4: " + inputUC4 + " -> " + isPalindromeUC4);
 
 
-        // UC5
+        // ==========================
+        // UC5 - Stack
+        // ==========================
         String inputUC5 = "noon";
+
         Stack<Character> stackUC5 = new Stack<>();
 
-        for (char c : inputUC5.toCharArray())
+        for (char c : inputUC5.toCharArray()) {
             stackUC5.push(c);
+        }
 
         boolean isPalindromeUC5 = true;
 
@@ -75,15 +86,19 @@ public class PalindromeCheckerApp {
             }
         }
 
-        System.out.println(inputUC5 + " -> " + isPalindromeUC5);
+        System.out.println("UC5: " + inputUC5 + " -> " + isPalindromeUC5);
 
 
-        // UC6
+        // ==========================
+        // UC6 - Queue + Stack
+        // ==========================
         String inputUC6 = "civic";
+
         Queue<Character> queue = new LinkedList<>();
         Stack<Character> stackUC6 = new Stack<>();
 
         for (char c : inputUC6.toCharArray()) {
+
             queue.offer(c);
             stackUC6.push(c);
         }
@@ -98,15 +113,19 @@ public class PalindromeCheckerApp {
             }
         }
 
-        System.out.println(inputUC6 + " -> " + isPalindromeUC6);
+        System.out.println("UC6: " + inputUC6 + " -> " + isPalindromeUC6);
 
 
-        // UC7
+        // ==========================
+        // UC7 - Deque
+        // ==========================
         String inputUC7 = "refer";
+
         Deque<Character> deque = new ArrayDeque<>();
 
-        for (char c : inputUC7.toCharArray())
+        for (char c : inputUC7.toCharArray()) {
             deque.addLast(c);
+        }
 
         boolean isPalindromeUC7 = true;
 
@@ -118,15 +137,19 @@ public class PalindromeCheckerApp {
             }
         }
 
-        System.out.println(inputUC7 + " -> " + isPalindromeUC7);
+        System.out.println("UC7: " + inputUC7 + " -> " + isPalindromeUC7);
 
 
-        // UC8
+        // ==========================
+        // UC8 - Linked List
+        // ==========================
         String inputUC8 = "madam";
+
         LinkedList<Character> list = new LinkedList<>();
 
-        for (char c : inputUC8.toCharArray())
+        for (char c : inputUC8.toCharArray()) {
             list.add(c);
+        }
 
         boolean isPalindromeUC8 = true;
 
@@ -141,48 +164,79 @@ public class PalindromeCheckerApp {
             }
         }
 
-        System.out.println(inputUC8 + " -> " + isPalindromeUC8);
+        System.out.println("UC8: " + inputUC8 + " -> " + isPalindromeUC8);
 
 
-        // UC9
+        // ==========================
+        // UC9 - Recursive
+        // ==========================
         String inputUC9 = "madam";
+
         boolean isPalindromeUC9 = checkRecursive(inputUC9, 0, inputUC9.length() - 1);
-        System.out.println(inputUC9 + " -> " + isPalindromeUC9);
+
+        System.out.println("UC9: " + inputUC9 + " -> " + isPalindromeUC9);
 
 
-        // UC10
+        // ==========================
+        // UC10 - Ignore Case & Spaces
+        // ==========================
         String inputUC10 = "A man a plan a canal Panama";
+
         String processed = inputUC10.replaceAll("\\s+", "").toLowerCase();
 
-        boolean isPalindromeUC10 = processed.equals(
-                new StringBuilder(processed).reverse().toString()
-        );
+        boolean isPalindromeUC10 =
+                processed.equals(new StringBuilder(processed).reverse().toString());
 
-        System.out.println(inputUC10 + " -> " + isPalindromeUC10);
+        System.out.println("UC10: " + inputUC10 + " -> " + isPalindromeUC10);
 
 
-        // UC11
+        // ==========================
+        // UC11 - OOP Service
+        // ==========================
         PalindromeService service = new PalindromeService();
+
         String inputUC11 = "racecar";
+
         boolean resultUC11 = service.isPalindrome(inputUC11);
-        System.out.println(inputUC11 + " -> " + resultUC11);
+
+        System.out.println("UC11: " + inputUC11 + " -> " + resultUC11);
 
 
         // ==========================
         // UC12 - Strategy Pattern
         // ==========================
-
         String inputUC12 = "level";
 
         PalindromeStrategy strategy = new StackStrategy();
 
         boolean resultUC12 = strategy.check(inputUC12);
 
-        System.out.println(inputUC12 + " -> " + resultUC12);
+        System.out.println("UC12: " + inputUC12 + " -> " + resultUC12);
+
+
+        // ==========================
+        // UC13 - Performance Comparison
+        // ==========================
+        String inputUC13 = "racecar";
+
+        long start1 = System.nanoTime();
+        boolean recursiveResult = checkRecursive(inputUC13, 0, inputUC13.length() - 1);
+        long end1 = System.nanoTime();
+
+        long start2 = System.nanoTime();
+        boolean serviceResult = service.isPalindrome(inputUC13);
+        long end2 = System.nanoTime();
+
+        System.out.println("UC13 Recursive Result: " + recursiveResult);
+        System.out.println("Recursive Time: " + (end1 - start1));
+
+        System.out.println("UC13 Service Result: " + serviceResult);
+        System.out.println("Service Time: " + (end2 - start2));
 
     }
 
 
+    // Recursive method
     private static boolean checkRecursive(String s, int start, int end) {
 
         if (start >= end)
@@ -196,7 +250,9 @@ public class PalindromeCheckerApp {
 }
 
 
+// ==========================
 // UC11 Service Class
+// ==========================
 class PalindromeService {
 
     public boolean isPalindrome(String input) {
@@ -218,14 +274,18 @@ class PalindromeService {
 }
 
 
+// ==========================
 // UC12 Strategy Interface
+// ==========================
 interface PalindromeStrategy {
 
     boolean check(String input);
 }
 
 
+// ==========================
 // Stack Strategy
+// ==========================
 class StackStrategy implements PalindromeStrategy {
 
     public boolean check(String input) {
