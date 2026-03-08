@@ -42,7 +42,6 @@ public class PalindromeCheckerApp {
 
         int start = 0;
         int end = chars.length - 1;
-
         boolean isPalindromeUC4 = true;
 
         while (start < end) {
@@ -57,7 +56,7 @@ public class PalindromeCheckerApp {
         System.out.println(inputUC4 + " -> " + isPalindromeUC4);
 
 
-        // UC5 - Stack Based Palindrome
+        // UC5 - Stack
         String inputUC5 = "noon";
         Stack<Character> stackUC5 = new Stack<>();
 
@@ -99,7 +98,7 @@ public class PalindromeCheckerApp {
         System.out.println(inputUC6 + " -> " + isPalindromeUC6);
 
 
-        // UC7 - Deque Optimized
+        // UC7 - Deque
         String inputUC7 = "refer";
         Deque<Character> deque = new ArrayDeque<>();
 
@@ -119,12 +118,8 @@ public class PalindromeCheckerApp {
         System.out.println(inputUC7 + " -> " + isPalindromeUC7);
 
 
-        // ==========================
-        // UC8 - Linked List Palindrome
-        // ==========================
-
+        // UC8 - LinkedList
         String inputUC8 = "madam";
-
         LinkedList<Character> list = new LinkedList<>();
 
         for (char c : inputUC8.toCharArray()) {
@@ -146,5 +141,29 @@ public class PalindromeCheckerApp {
 
         System.out.println(inputUC8 + " -> " + isPalindromeUC8);
 
+
+        // ==========================
+        // UC9 - Recursive Palindrome
+        // ==========================
+
+        String inputUC9 = "madam";
+
+        boolean isPalindromeUC9 = checkRecursive(inputUC9, 0, inputUC9.length() - 1);
+
+        System.out.println(inputUC9 + " -> " + isPalindromeUC9);
+
+    }
+
+
+    // Recursive function
+    private static boolean checkRecursive(String s, int start, int end) {
+
+        if (start >= end)
+            return true;
+
+        if (s.charAt(start) != s.charAt(end))
+            return false;
+
+        return checkRecursive(s, start + 1, end - 1);
     }
 }
