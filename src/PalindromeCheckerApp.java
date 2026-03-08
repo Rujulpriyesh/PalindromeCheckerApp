@@ -24,7 +24,7 @@ public class PalindromeCheckerApp {
         System.out.println(inputUC2 + " -> " + isPalindromeUC2);
 
 
-        // UC3 - Reverse String Method
+        // UC3 - Reverse String
         String inputUC3 = "level";
         String reversed = "";
 
@@ -36,12 +36,13 @@ public class PalindromeCheckerApp {
         System.out.println("Palindrome? " + inputUC3.equals(reversed));
 
 
-        // UC4 - Character Array Two Pointer
+        // UC4 - Character Array
         String inputUC4 = "radar";
         char[] chars = inputUC4.toCharArray();
 
         int start = 0;
         int end = chars.length - 1;
+
         boolean isPalindromeUC4 = true;
 
         while (start < end) {
@@ -60,9 +61,8 @@ public class PalindromeCheckerApp {
         String inputUC5 = "noon";
         Stack<Character> stackUC5 = new Stack<>();
 
-        for (char c : inputUC5.toCharArray()) {
+        for (char c : inputUC5.toCharArray())
             stackUC5.push(c);
-        }
 
         boolean isPalindromeUC5 = true;
 
@@ -102,9 +102,8 @@ public class PalindromeCheckerApp {
         String inputUC7 = "refer";
         Deque<Character> deque = new ArrayDeque<>();
 
-        for (char c : inputUC7.toCharArray()) {
+        for (char c : inputUC7.toCharArray())
             deque.addLast(c);
-        }
 
         boolean isPalindromeUC7 = true;
 
@@ -122,9 +121,8 @@ public class PalindromeCheckerApp {
         String inputUC8 = "madam";
         LinkedList<Character> list = new LinkedList<>();
 
-        for (char c : inputUC8.toCharArray()) {
+        for (char c : inputUC8.toCharArray())
             list.add(c);
-        }
 
         boolean isPalindromeUC8 = true;
 
@@ -142,20 +140,32 @@ public class PalindromeCheckerApp {
         System.out.println(inputUC8 + " -> " + isPalindromeUC8);
 
 
-        // ==========================
-        // UC9 - Recursive Palindrome
-        // ==========================
-
+        // UC9 - Recursive
         String inputUC9 = "madam";
 
         boolean isPalindromeUC9 = checkRecursive(inputUC9, 0, inputUC9.length() - 1);
 
         System.out.println(inputUC9 + " -> " + isPalindromeUC9);
 
+
+        // ==========================
+        // UC10 - Ignore Case & Spaces
+        // ==========================
+
+        String inputUC10 = "A man a plan a canal Panama";
+
+        String processed = inputUC10.replaceAll("\\s+", "").toLowerCase();
+
+        boolean isPalindromeUC10 = processed.equals(
+                new StringBuilder(processed).reverse().toString()
+        );
+
+        System.out.println(inputUC10 + " -> " + isPalindromeUC10);
+
     }
 
 
-    // Recursive function
+    // Recursive method
     private static boolean checkRecursive(String s, int start, int end) {
 
         if (start >= end)
